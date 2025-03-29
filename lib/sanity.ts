@@ -10,7 +10,7 @@ const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION;
 
 if (!projectId || !dataset || !apiVersion) {
   throw new Error(
-    "Ajoj! Fali ti Sanity project ID, dataset ili apiVersion u .env.local"
+    "Fali ti Sanity project ID, dataset ili apiVersion u .env.local"
   );
 }
 
@@ -26,7 +26,6 @@ export const sanityClient = createClient({
 
 // Helper funkcija za generiranje URL-ova za slike iz Sanityja
 const builder = imageUrlBuilder(sanityClient);
-
 export function urlFor(source: any) {
   // Mala funkcija da lakše dobijemo URL od slike
   return builder.image(source);

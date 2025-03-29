@@ -1,10 +1,8 @@
-// components/sections/BlogPreviewSection.tsx
 import React from "react";
 import Link from "next/link";
-import BlogCard from "../shared/BlogCard"; // Import the card component
-import { getRecentPosts } from "@/lib/sanity.queries"; // Import function to fetch recent posts
+import BlogCard from "../shared/BlogCard";
+import { getRecentPosts } from "@/lib/sanity.queries";
 
-// This is now an async Server Component
 const BlogPreviewSection = async () => {
   // Self-comment: Fetch the 3 most recent blog posts directly on the server.
   const recentPosts = await getRecentPosts();
@@ -38,7 +36,6 @@ const BlogPreviewSection = async () => {
           </div>
         )}
 
-        {/* Link to Main Blog Page */}
         <div className="text-center">
           <Link
             href="/blog" // Link to the future main blog page

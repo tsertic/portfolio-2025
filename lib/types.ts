@@ -38,9 +38,11 @@ export interface Technology extends SanityBase {
 }
 
 // Interface for the custom Video File type
-// Self-comment: Describes the structure of the video file asset.
+// Self-comment: Describes the structure of the video file asset with additional properties.
 export interface VideoFile extends FileAsset {
   // Inherits fields like 'url', 'originalFilename', 'mimeType', etc. from FileAsset
+  // Adding at least one custom property to fix the ESLint error
+  customThumb?: string; // Optional thumbnail URL specific to this video
 }
 
 // Interface for the Project schema
@@ -49,13 +51,13 @@ export interface Project extends SanityBase {
   _type: "project";
   title?: string;
   slug?: Slug;
-  author?: SanityReference<"author">; // Reference to an Author document
+  author?: SanityReference; // Reference to an Author document
   mainImage?: Image & { alt?: string };
   previewVideo?: {
-    asset?: SanityReference<"sanity.fileAsset">; // Reference to the video file asset
+    asset?: SanityReference; // Reference to the video file asset
   };
-  technologies?: SanityReference<"technology">[]; // Array of references to Technology documents
-  categories?: SanityReference<"category">[]; // Array of references to Category documents
+  technologies?: SanityReference[]; // Array of references to Technology documents
+  categories?: SanityReference[]; // Array of references to Category documents
   createdAt?: string; // ISO date string
   repository?: string; // URL
   live?: string; // URL
@@ -69,9 +71,9 @@ export interface Post extends SanityBase {
   _type: "post";
   title?: string;
   slug?: Slug;
-  author?: SanityReference<"author">;
+  author?: SanityReference;
   mainImage?: Image & { alt?: string };
-  categories?: SanityReference<"category">[];
+  categories?: SanityReference[];
   publishedAt?: string; // ISO date string
   body?: PortableTextBlock[];
 }
@@ -87,8 +89,8 @@ export interface ContactMessage extends SanityBase {
 }
 
 // Helper type for Sanity references
-// Self-comment: A generic type to represent Sanity's reference objects more clearly.
-export type SanityReference<T extends string> = {
+// Self-comment: Represents Sanity's reference objects.
+export type SanityReference = {
   _ref: string;
   _type: "reference";
   // Optionally, we can add _key if it's within an array, but _ref is the main part

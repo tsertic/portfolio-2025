@@ -7,8 +7,6 @@ import { PortableText } from "@portabletext/react";
 import { CustomPortableTextComponents } from "../sanity/CustomPortableTextComponents";
 import { QueryResultProject } from "@/lib/sanity.queries";
 import Image from "next/image";
-import Link from "next/link";
-// import { FaGithub, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'; // Example icons
 
 interface ProjectDetailModalProps {
   project: QueryResultProject | null; // Project to display, or null if hidden

@@ -106,7 +106,7 @@ export const CustomPortableTextComponents: Partial<PortableTextReactComponents> 
       },
       // Add code block type
       codeBlock: ({ value }) => {
-        const { code, language, filename, highlightLines } = value;
+        const { code, language, filename } = value;
 
         return (
           <div className="my-6 overflow-hidden rounded-lg">

@@ -1,13 +1,8 @@
 // lib/sanity.queries.ts
 import { groq } from "next-sanity"; // Helper for syntax highlighting
-import { sanityClient, urlFor } from "./sanity"; // Import configured client and URL builder
-import type {
-  ProjectExpanded,
-  PostExpanded,
-  Technology,
-  Category,
-} from "./types"; // Import base types
-import type { Image, Slug, PortableTextBlock, FileAsset } from "sanity";
+import { sanityClient } from "./sanity"; // Import configured client and URL builder
+import type { Technology, Category, Post, Author } from "./types"; // Import base types
+import type { Slug, PortableTextBlock } from "sanity";
 // --- Specific Query Result Types ---
 
 // Self-comment: Defines the exact data structure returned by the 'projectsQuery'.
@@ -191,3 +186,101 @@ export async function getAllCategories(): Promise<Category[]> {
 // Example:
 // export async function getProjectBySlug(slug: string): Promise<QueryResultProject | null> { ... }
 // export async function getPostBySlug(slug: string): Promise<QueryResultPost | null> { ... }
+// --- New Query Result Type for Blog List Page ---
+// Self-comment: Type for posts listed on the main blog page. Includes excerpt.
+export type BlogListPagePost = Pick<
+  Post,
+  "_id" | "title" | "slug" | "publishedAt"
+> & {
+  mainImageUrl?: string | null;
+  altText?: string | null;
+  author?: { name?: string };
+  excerpt?: string | null; // Generated excerpt
+};
+
+// --- New Query Result Type for Single Blog Post Page ---
+// Self-comment: Type for a single, fully detailed blog post. Includes full body and references.
+export type SinglePost = Pick<
+  Post,
+  "_id" | "title" | "slug" | "publishedAt" | "body"
+> & {
+  mainImageUrl?: string | null;
+  altText?: string | null;
+  author?: Pick<Author, "name"> & { imageUrl?: string | null }; // Include author image URL
+  categories?: Array<Pick<Category, "_id" | "title">>;
+};
+
+const allPostsQuery = groq`
+*[_type == "post" && defined(slug.current) && defined(publishedAt)] | order(publishedAt desc) {
+  _id,
+  title,
+  slug,
+  publishedAt,
+  "mainImageUrl": mainImage.asset->url,
+  "altText": mainImage.alt,
+  author->{ name },
+  "excerpt": pt::text(body[0]), // Generate excerpt from first body block
+}`;
+
+// Self-comment: Function to fetch all posts for the blog list page.
+export async function getAllPosts(): Promise<BlogListPagePost[]> {
+  try {
+    const posts = await sanityClient.fetch<BlogListPagePost[]>(allPostsQuery);
+    return posts;
+  } catch (error) {
+    console.error("Failed to fetch all posts:", error);
+    return [];
+  }
+}
+
+// Self-comment: Query to fetch a single post by its slug. Includes full body and expanded references.
+const postBySlugQuery = groq`
+*[_type == "post" && slug.current == $slug][0] {
+  _id,
+  title,
+  slug,
+  publishedAt,
+  "mainImageUrl": mainImage.asset->url,
+  "altText": mainImage.alt,
+  author->{
+    name,
+    "imageUrl": image.asset->url // Fetch author image too
+   },
+  categories[]->{ // Fetch categories for the post
+    _id,
+    title
+  },
+  body // Fetch the full Portable Text body
+}`;
+
+// Self-comment: Function to fetch a single post by its slug.
+// Returns the post object or null if not found.
+export async function getPostBySlug(slug: string): Promise<SinglePost | null> {
+  if (!slug) return null; // Return null if slug is missing
+  try {
+    // Pass the slug as a parameter to the query
+    const post = await sanityClient.fetch<SinglePost | null>(postBySlugQuery, {
+      slug,
+    });
+    return post;
+  } catch (error) {
+    console.error(`Failed to fetch post with slug "${slug}":`, error);
+    return null; // Return null on error
+  }
+}
+
+// Self-comment: Query to fetch slugs of all published posts. Used for generateStaticParams.
+const postSlugsQuery = groq`
+*[_type == "post" && defined(slug.current)][].slug.current
+`;
+
+// Self-comment: Function to fetch all post slugs.
+export async function getAllPostSlugs(): Promise<string[]> {
+  try {
+    const slugs = await sanityClient.fetch<string[]>(postSlugsQuery);
+    return slugs || [];
+  } catch (error) {
+    console.error("Failed to fetch post slugs:", error);
+    return [];
+  }
+}
