@@ -63,7 +63,7 @@ export type QueryResultPost = {
 // Orders by 'priority' ascending, then 'createdAt' descending.
 // Projects specific fields and expands references for author, technologies, and categories.
 const projectsQuery = groq`
-*[_type == "project"] | order(priority asc, createdAt desc) {
+*[_type == "project"] | order(priority desc, createdAt desc) {
   _id,                         // Select the document ID
   createdAt,                   // Select creation timestamp
   title,                       // Select project title
