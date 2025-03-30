@@ -36,7 +36,7 @@ const IntroSection = () => {
           custom={1}
         >
           Hi, I&apos;m
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600">
+          <span className=" ml-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600">
             {siteConfig.name}
           </span>
         </motion.h1>

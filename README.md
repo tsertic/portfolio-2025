@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Portfolio Website
 
-## Getting Started
+A modern, responsive portfolio website showcasing my work as a Full-Stack Software Developer. Built with Next.js, TypeScript, and integrated with Sanity CMS.
 
-First, run the development server:
+![Portfolio Preview- 30.03.2025](preview.gif)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Live Site
+
+Visit my portfolio at: [tsertic.dev](https://tsertic.dev)
+
+## 💻 Tech Stack
+
+- **Frontend**: Next.js 15, TypeScript, React, Framer Motion
+- **Styling**: Tailwind CSS, SCSS Modules
+- **CMS**: Sanity.io
+- **Deployment**: Vercel
+
+## ✨ Features
+
+- Responsive design that works across all devices
+- Dynamic project showcase with filtering by technology
+- Interactive animations using Framer Motion
+- Blog section with Sanity CMS integration
+- Contact form
+- Optimized performance and SEO
+
+## 🏗️ Project Structure
+
+```
+portfolio-2025/
+├── app/                          # Next.js App Router directory
+│   ├── blog/                     # Blog routes
+│   │   ├── [slug]/               # Dynamic blog post route
+│   │   ├── page.tsx              # Blog listing page
+│   ├── studio/                   # Sanity Studio route
+│   ├── layout.tsx                # Root layout
+│   ├── page.tsx                  # Home page
+├── components/
+│   ├── layout/                   # Layout components
+│   │   ├── Footer.tsx
+│   │   └── Navbar.tsx
+│   ├── modals/                   # Modal components
+│   │   └── ProjectDetailModal.tsx
+│   ├── sanity/                   # Sanity-specific components
+│   │   └── CustomPortableTextComponents.tsx
+│   ├── sections/                 # Major page sections
+│   │   ├── AboutSection.tsx
+│   │   ├── BlogPreviewSection.tsx
+│   │   ├── ContactSection.tsx
+│   │   ├── IntroSection.tsx
+│   │   └── ProjectsSection.tsx
+│   ├── shared/                   # Shared components
+│   │   ├── BackgroundAnimation.tsx
+│   │   ├── BlogCard.tsx
+│   │   ├── BlogPageCard.tsx
+│   │   └── ProjectCard.tsx
+│   ├── ui/                       # UI components
+├── config/                       # Configuration
+│   └── site.ts                   # Site metadata and config
+├── hooks/                        # Custom React hooks
+│   └── useMediaQuery.ts          # Responsive design hook
+├── lib/                          # Utility functions
+│   ├── sanity.queries.ts         # Sanity GROQ queries
+│   ├── sanity.ts                 # Sanity client setup
+│   ├── types.ts                  # TypeScript types
+│   └── utils.ts                  # Utility functions
+├── public/                       # Static assets
+│   ├── images/
+│   ├── svg/
+├── schemas/                      # Sanity schema definitions
+│   ├── author.ts
+│   ├── blockContent.ts
+│   ├── category.ts
+│   ├── contact.ts
+│   ├── post.ts
+│   ├── project.ts
+│   ├── technology.ts
+│   └── videoFileType.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧰 About Me
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I'm a Full-Stack Software Developer from Zagreb, Croatia 🇭🇷, specializing in building high-performance web applications, robust backend systems, and effective digital solutions. With 5 years of experience, I focus on developing scalable, efficient, and user-friendly software.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Core Skills
 
-## Learn More
+- **Languages**: JavaScript/TypeScript, C#, Python
+- **Frontend**: React, Next.js, Tailwind CSS
+- **Backend**: Node.js, Express, ASP.NET
+- **Databases**: SQL, MongoDB, Sanity
+- **Other**: RESTful APIs, AI integration
 
-To learn more about Next.js, take a look at the following resources:
+### Current Role
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Software Developer at Arctis d.o.o (Archibus IWMS Representatives), where I handle server setup, database integration, and developing custom features using JavaScript and other technologies.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Beyond Coding
 
-## Deploy on Vercel
+When I'm not coding, I enjoy:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Playing basketball (Pregrada Barbari - CroHoops)
+- Cycling and hiking
+- Chess
+- Spending time with family and my dog
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 Blog
+
+I occasionally write about web development, technology trends, and my experiences in the field. Check out my latest articles in the [Blog section](https://your-portfolio-url.com/blog).
+
+## 📞 Contact
+
+Feel free to reach out if you're interested in collaborating or have any questions. The best way to connect is through:
+
+- Email: tsertic5@gmail.com
+- LinkedIn: [Tomislav Sertic](https://www.linkedin.com/in/tomislav-sertic)
+
+## 🛠️ Running the Project Locally
+
+```bash
+# Clone the repository
+git clone https://github.com/tsertic/portfolio-2025
+
+# Navigate to the project directory
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+# Create a .env.local file with the necessary Sanity credentials
+
+# Start the development server
+npm run dev
+```
+
+Open [http://localhost:4545](http://localhost:4545) in your browser to see the result.
+
+### Sanity Studio
+
+This project includes Sanity Studio for content management. To access the studio:
+
+1. Run the development server (`npm run dev`)
+2. Visit [http://localhost:4545/studio](http://localhost:4545/studio)
