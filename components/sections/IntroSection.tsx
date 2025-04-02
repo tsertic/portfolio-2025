@@ -5,6 +5,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import BackgroundAnimation from "../shared/BackgroundAnimation";
 import { siteConfig } from "@/config/site";
+import WalkingDog from "../animations/WalkingDog";
 
 // Animation variants for fade in and slide up effects
 const fadeInAnimation = {
@@ -24,10 +25,10 @@ const IntroSection = () => {
   return (
     <section
       id="intro"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-28 lg:py-36 border-b border-gray-200 "
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden    border-b border-gray-200 my-0 py-0 mt-[-60px] md:mt-[-120px]"
     >
       <BackgroundAnimation />
-      <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl">
+      <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl ">
         <motion.h1
           className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 text-gray-900"
           variants={fadeInAnimation}
@@ -112,6 +113,7 @@ const IntroSection = () => {
           </a>
         </motion.div>
       </div>
+      <WalkingDog />
     </section>
   );
 };

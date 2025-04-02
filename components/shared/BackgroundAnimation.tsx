@@ -1,11 +1,8 @@
-// components/shared/BackgroundAnimation.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image"; // Import Next.js Image component
-
-// No longer need the inline PixelShape component
+import Image from "next/image";
 
 const BackgroundAnimation = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -14,78 +11,72 @@ const BackgroundAnimation = () => {
       id: number;
       initialX: number;
       initialY: number;
-      duration: number; // Faster duration
+      duration: number;
       delay: number;
     }>
   >([]);
 
-  // Settings for the animation
-  const numberOfInvaders = 15; // Increased number of invaders
-  const minDuration = 8; // Minimum animation cycle duration (seconds) - Faster
-  const maxDuration = 15; // Maximum animation cycle duration (seconds) - Faster
-  const invaderWidth = 35; // Adjust size if needed
-  const invaderHeight = 25; // Adjust size if needed
+  // Animation configuration
+  const numberOfInvaders = 15;
+  const minDuration = 8; // Animation duration in seconds
+  const maxDuration = 15;
+  const invaderWidth = 35; // Size in pixels
+  const invaderHeight = 25;
 
   useEffect(() => {
-    // Generate shapes properties only on the client
+    // Generate random properties for each invader
     const generatedShapes = Array.from({ length: numberOfInvaders }).map(
       (_, index) => ({
         id: index,
-        initialX: Math.random() * 90 + 5, // Position within 5% to 95% bounds
-        initialY: Math.random() * 90 + 5,
-        // Calculate random duration within the new faster range
+        initialX: Math.random() * 90 + 5, // 5-95% of viewport width
+        initialY: Math.random() * 90 + 5, // 5-95% of viewport height
         duration: Math.random() * (maxDuration - minDuration) + minDuration,
-        delay: Math.random() * 3, // Random start delay up to 3 seconds
+        delay: Math.random() * 3, // Stagger animation starts
       })
     );
     setShapes(generatedShapes);
     setIsMounted(true);
-  }, []); // Empty dependency array ensures this runs only once after mount
+  }, []);
 
-  // Render null on server/initial client render to prevent hydration mismatch
+  // Prevent hydration mismatch
   if (!isMounted) {
     return null;
   }
 
-  // Render the invaders once mounted
   return (
     <div
-      className="absolute inset-0 -z-10 overflow-hidden pointer-events-none" // Added pointer-events-none
+      className="absolute inset-0 -z-10 overflow-hidden pointer-events-none"
       aria-hidden="true"
     >
       {shapes.map((shape) => (
         <motion.div
           key={shape.id}
-          className="absolute" // Will be positioned by style prop
+          className="absolute"
           style={{
             top: `${shape.initialY}%`,
             left: `${shape.initialX}%`,
           }}
           animate={{
-            // Slightly more pronounced movement range
-            x: [0, Math.random() * 60 - 30, Math.random() * 60 - 30, 0], // Move +/- 30px horizontally
-            y: [0, Math.random() * 60 - 30, Math.random() * 60 - 30, 0], // Move +/- 30px vertically
+            // Random floating movement pattern
+            x: [0, Math.random() * 60 - 30, Math.random() * 60 - 30, 0],
+            y: [0, Math.random() * 60 - 30, Math.random() * 60 - 30, 0],
           }}
           transition={{
-            duration: shape.duration, // Use the faster duration
+            duration: shape.duration,
             delay: shape.delay,
             repeat: Infinity,
             repeatType: "mirror",
             ease: "easeInOut",
           }}
         >
-          {/* Container for opacity and the image */}
           <div className="opacity-10 md:opacity-10">
-            {" "}
-            {/* Adjusted opacity slightly */}
-            {/* Use next/image to load the SVG */}
             <Image
-              src="/svg/invader.svg" // Path relative to the public folder
-              alt="" // Decorative image, alt is empty
+              src="/svg/invader.svg"
+              alt=""
               width={invaderWidth}
               height={invaderHeight}
-              priority={false} // Not critical to load immediately
-              unoptimized={true} // Recommended for SVGs to prevent rasterization if not needed
+              priority={false}
+              unoptimized={true} // Better for SVGs
             />
           </div>
         </motion.div>

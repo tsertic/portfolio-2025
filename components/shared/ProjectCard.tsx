@@ -1,4 +1,3 @@
-// components/shared/ProjectCard.tsx
 "use client";
 
 import React from "react";
@@ -9,12 +8,21 @@ import { QueryResultProject } from "@/lib/sanity.queries";
 interface ProjectCardProps {
   project: QueryResultProject;
   index: number;
-  // isSelected: boolean; // Removed
   onClick: (project: QueryResultProject) => void;
 }
 
+// Animation configuration for project card entry
 const cardVariants = {
-  /* ... same variants ... */
+  hidden: { opacity: 0, y: 20 },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: index * 0.1, // Staggered delay based on card index
+      duration: 0.4, // Animation duration
+      ease: "easeOut", // Smooth easing function
+    },
+  }),
 };
 
 const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
@@ -27,7 +35,6 @@ const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
   return (
     <motion.div
       onClick={handleCardClick}
-      // Self-comment: Removed isSelected logic, simplified hover effects.
       className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-all duration-300 cursor-pointer hover:shadow-lg hover:border-gray-300 hover:scale-[1.02]"
       variants={cardVariants}
       initial="hidden"
@@ -52,7 +59,6 @@ const ProjectCard = ({ project, index, onClick }: ProjectCardProps) => {
       {/* Content */}
       <div className="flex flex-1 flex-col justify-between p-4">
         <div>
-          {/* Self-comment: Removed isSelected style from title */}
           <h3 className="mb-2 text-base font-semibold text-gray-900">
             {title || "Untitled Project"}
           </h3>

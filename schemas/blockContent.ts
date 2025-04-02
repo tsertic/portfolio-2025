@@ -93,6 +93,8 @@ export default defineType({
               { title: "TypeScript", value: "typescript" },
               { title: "HTML", value: "html" },
               { title: "CSS", value: "css" },
+              { title: "C#", value: "c sharp" },
+              { title: "Python", value: "python" },
               { title: "JSON", value: "json" },
               { title: "JSX", value: "jsx" },
               { title: "TSX", value: "tsx" },

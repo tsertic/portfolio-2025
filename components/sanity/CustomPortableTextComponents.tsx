@@ -1,9 +1,8 @@
-// components/sanity/CustomPortableTextComponents.tsx
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PortableTextReactComponents } from "@portabletext/react";
-import { urlFor } from "@/lib/sanity"; // Import urlFor helper
+import { urlFor } from "@/lib/sanity";
 
 // Self-comment: Defining custom components to render Sanity's Portable Text blocks.
 // This allows us to apply specific styling and logic to different block types.

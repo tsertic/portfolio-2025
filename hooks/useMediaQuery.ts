@@ -1,4 +1,3 @@
-// hooks/useMediaQuery.ts
 import { useState, useEffect } from "react";
 
 // Self-comment: Custom hook to detect if a CSS media query matches.

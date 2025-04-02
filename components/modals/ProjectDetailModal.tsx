@@ -1,4 +1,3 @@
-// components/modals/ProjectDetailModal.tsx
 "use client";
 
 import React from "react";
