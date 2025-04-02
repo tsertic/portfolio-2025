@@ -25,7 +25,7 @@ const IntroSection = () => {
   return (
     <section
       id="intro"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden    border-b border-gray-200 my-0 py-0 mt-[-60px] md:mt-[-120px]"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden    border-b border-gray-200 my-0 py-[80px] md:py-0 mt-[-60px] md:mt-[-120px]"
     >
       <BackgroundAnimation />
       <div className="container relative z-10 mx-auto px-4 text-center max-w-4xl ">
