@@ -22,7 +22,7 @@ const sectionFadeIn = {
 
 const AboutSection = () => {
   // Self-comment: Profile image path - make sure this exists in public directory
-  const profileImagePath = "/images/ts-img1.jfif";
+  const profileImagePath = "/images/ts.png";
 
   return (
     <section
