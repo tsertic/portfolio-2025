@@ -78,7 +78,7 @@ const Navbar = () => {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ease-in-out ${
         hasScrolled || isMobileMenuOpen
-          ? "bg-white shadow-md dark:bg-gray-900 dark:border-b dark:border-gray-700"
+          ? "bg-white shadow-md "
           : "bg-transparent shadow-none"
       }`}
       initial={{ y: -100 }}
@@ -90,7 +90,7 @@ const Navbar = () => {
           {/* Site Logo/Name */}
           <Link
             href="/"
-            className="text-xl font-bold text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            className="text-xl font-bold text-gray-900   hover:text-indigo-600   transition-colors"
           >
             {siteConfig.name}
           </Link>
@@ -104,8 +104,8 @@ const Navbar = () => {
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className={`text-sm font-medium transition-colors ${
                   isActive(pathname, link.href)
-                    ? "text-indigo-600 dark:text-indigo-400"
-                    : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                    ? "text-indigo-600  "
+                    : "text-gray-600   hover:text-gray-900  "
                 }`}
               >
                 {link.name}
@@ -119,7 +119,7 @@ const Navbar = () => {
               onClick={toggleMobileMenu}
               aria-label="Toggle mobile menu"
               aria-expanded={isMobileMenuOpen}
-              className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              className="p-2 rounded-md text-gray-600   hover:text-gray-900   hover:bg-gray-100   focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
             >
               {isMobileMenuOpen ? (
                 <svg
@@ -157,7 +157,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       <motion.div
-        className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 shadow-lg overflow-hidden border-t border-gray-100 dark:border-gray-700"
+        className="md:hidden absolute top-full left-0 right-0 bg-white   shadow-lg overflow-hidden border-t border-gray-100  "
         initial={{ height: 0, opacity: 0 }}
         animate={{
           height: isMobileMenuOpen ? "auto" : 0,
@@ -173,8 +173,8 @@ const Navbar = () => {
               onClick={(e) => handleLinkClick(e, link.href)}
               className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                 isActive(pathname, link.href)
-                  ? "bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
-                  : "text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+                  ? "bg-indigo-50   text-indigo-700  "
+                  : "text-gray-700   hover:bg-gray-50   hover:text-gray-900  "
               }`}
             >
               {link.name}

@@ -27,12 +27,12 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="w-full py-16 md:py-24 lg:py-32 border-b border-gray-200 bg-white dark:bg-gray-950"
+      className="w-full py-16 md:py-24 lg:py-32 border-b border-gray-200 bg-white  "
     >
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white"
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900  "
           variants={sectionFadeIn}
           initial="hidden"
           whileInView="visible"
@@ -54,7 +54,7 @@ const AboutSection = () => {
             custom={1}
           >
             {/* Profile Image with responsive sizing */}
-            <div className="relative w-48 h-48 md:w-60 md:h-60 mb-6 rounded-full overflow-hidden shadow-lg border-4 border-indigo-100 dark:border-indigo-800">
+            <div className="relative w-48 h-48 md:w-60 md:h-60 mb-6 rounded-full overflow-hidden shadow-lg border-4 border-indigo-100  ">
               <Image
                 src={profileImagePath}
                 alt={`${siteConfig.name}`}
@@ -65,19 +65,19 @@ const AboutSection = () => {
               />
             </div>
 
-            <h3 className="text-2xl font-semibold mb-3 text-center lg:text-left text-gray-800 dark:text-gray-100">
+            <h3 className="text-2xl font-semibold mb-3 text-center lg:text-left text-gray-800  ">
               Hello there.
             </h3>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center lg:text-left">
+            <p className="text-lg text-gray-700   leading-relaxed text-center lg:text-left">
               I&apos;m{" "}
-              <strong className="font-medium text-gray-900 dark:text-white">
+              <strong className="font-medium text-gray-900  ">
                 {siteConfig.name}
               </strong>
               , a versatile software developer from Zagreb, Croatia{" "}
               <span className="text-xl">🇭🇷</span>, passionate about building
               robust applications and solving complex problems with code.
             </p>
-            <p className="mt-3 text-gray-600 dark:text-gray-400 text-center lg:text-left">
+            <p className="mt-3 text-gray-600   text-center lg:text-left">
               With 5 years of experience, my focus is on developing scalable,
               efficient, and user-friendly software solutions, while also being
               proficient in modern web technologies.
@@ -94,13 +94,13 @@ const AboutSection = () => {
             custom={2}
           >
             {/* Technical Skills Card */}
-            <div className="p-6 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-100 dark:border-gray-800 shadow-sm">
-              <h3 className="text-xl font-semibold mb-4 text-indigo-700 dark:text-indigo-400 border-b pb-2 border-indigo-100 dark:border-gray-700">
+            <div className="p-6 bg-gray-50   rounded-lg border border-gray-100   shadow-sm">
+              <h3 className="text-xl font-semibold mb-4 text-indigo-700   border-b pb-2 border-indigo-100  ">
                 Technical Skills
               </h3>
-              <div className="space-y-4 text-gray-700 dark:text-gray-300 text-sm md:text-base">
+              <div className="space-y-4 text-gray-700   text-sm md:text-base">
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     Core Languages:
                   </strong>{" "}
                   Proficient in{" "}
@@ -110,7 +110,7 @@ const AboutSection = () => {
                   scripting and automation tasks.
                 </p>
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     Web Development:
                   </strong>{" "}
                   Strong command of{" "}
@@ -122,7 +122,7 @@ const AboutSection = () => {
                   <strong className="font-medium">Tailwind CSS</strong>.
                 </p>
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     API Development:
                   </strong>{" "}
                   Experienced in designing and building{" "}
@@ -134,7 +134,7 @@ const AboutSection = () => {
                   .
                 </p>
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     Databases:
                   </strong>{" "}
                   Solid experience with relational databases (
@@ -143,7 +143,7 @@ const AboutSection = () => {
                   Sanity, Firestore).
                 </p>
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     AI & Automation:
                   </strong>{" "}
                   Interested in leveraging{" "}
@@ -153,7 +153,7 @@ const AboutSection = () => {
                   various automation scripts.
                 </p>
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     Tools & Design:
                   </strong>{" "}
                   Comfortable translating Figma designs into code and using
@@ -163,13 +163,13 @@ const AboutSection = () => {
             </div>
 
             {/* Professional Experience Card */}
-            <div className="p-6 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-100 dark:border-gray-800 shadow-sm">
-              <h3 className="text-xl font-semibold mb-4 text-indigo-700 dark:text-indigo-400 border-b pb-2 border-indigo-100 dark:border-gray-700">
+            <div className="p-6 bg-gray-50   rounded-lg border border-gray-100   shadow-sm">
+              <h3 className="text-xl font-semibold mb-4 text-indigo-700   border-b pb-2 border-indigo-100  ">
                 Professional Experience
               </h3>
-              <div className="space-y-4 text-gray-700 dark:text-gray-300 text-sm md:text-base">
+              <div className="space-y-4 text-gray-700   text-sm md:text-base">
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     Current Role:
                   </strong>{" "}
                   Software Developer at{" "}
@@ -177,7 +177,7 @@ const AboutSection = () => {
                   (Archibus IWMS Representatives).
                 </p>
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     Key Responsibilities:
                   </strong>{" "}
                   Full lifecycle involvement including server setup, database
@@ -186,7 +186,7 @@ const AboutSection = () => {
                   technologies.
                 </p>
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     Significant Projects:
                   </strong>{" "}
                   Gained extensive experience collaborating with large corporate
@@ -199,13 +199,13 @@ const AboutSection = () => {
             </div>
 
             {/* Personal Life Card */}
-            <div className="p-6 bg-gray-50 dark:bg-gray-900 rounded-lg border border-gray-100 dark:border-gray-800 shadow-sm">
-              <h3 className="text-xl font-semibold mb-4 text-indigo-700 dark:text-indigo-400 border-b pb-2 border-indigo-100 dark:border-gray-700">
+            <div className="p-6 bg-gray-50   rounded-lg border border-gray-100   shadow-sm">
+              <h3 className="text-xl font-semibold mb-4 text-indigo-700   border-b pb-2 border-indigo-100  ">
                 Beyond the Keyboard
               </h3>
-              <div className="space-y-4 text-gray-700 dark:text-gray-300 text-sm md:text-base">
+              <div className="space-y-4 text-gray-700   text-sm md:text-base">
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     Balanced Life:
                   </strong>{" "}
                   I strive for balance. When I&apos;m not coding, you&apos;ll
@@ -214,7 +214,7 @@ const AboutSection = () => {
                   <strong className="font-medium">dog</strong>.
                 </p>
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     Active Pursuits:
                   </strong>{" "}
                   I&apos;m an avid{" "}
@@ -225,14 +225,14 @@ const AboutSection = () => {
                   , and diving.
                 </p>
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     Mind Games:
                   </strong>{" "}
                   I also enjoy unwinding with a game of{" "}
                   <strong className="font-medium">chess</strong>.
                 </p>
                 <p>
-                  <strong className="font-medium text-gray-800 dark:text-gray-100">
+                  <strong className="font-medium text-gray-800  ">
                     Connect:
                   </strong>{" "}
                   Curious about my offline adventures? Check out my
@@ -242,7 +242,7 @@ const AboutSection = () => {
                       href={siteConfig.socials.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-medium transition-colors ml-1"
+                      className="text-indigo-600   hover:text-indigo-800   font-medium transition-colors ml-1"
                     >
                       Instagram
                     </a>
