@@ -124,7 +124,10 @@ const BlogListPageClient = () => {
         {!isLoading && !error && (
           <>
             {filteredPosts.length > 0 ? (
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              <div
+                className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+                id="blogPost"
+              >
                 {/* Use the new BlogPageCard */}
                 {filteredPosts.map((post, index) => (
                   <BlogPageCard key={post._id} post={post} index={index} />

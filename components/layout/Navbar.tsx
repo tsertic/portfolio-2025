@@ -1,4 +1,3 @@
-// components/layout/Navbar.tsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -9,7 +8,6 @@ import { motion } from "framer-motion";
 
 // Helper function to determine if a navigation link is currently active
 const isActive = (currentPath: string, targetHref: string): boolean => {
-  // For hash links (#section): active only on homepage
   if (targetHref.startsWith("/#")) {
     return currentPath === "/";
   }
@@ -77,9 +75,11 @@ const Navbar = () => {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ease-in-out ${
-        hasScrolled || isMobileMenuOpen
-          ? "bg-white shadow-md "
-          : "bg-transparent shadow-none"
+        hasScrolled
+          ? "bg-white led-glow "
+          : isMobileMenuOpen
+            ? "bg-white shadow-md"
+            : "bg-transparent shadow-none"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}

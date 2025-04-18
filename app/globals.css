@@ -17,3 +17,25 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes ledGlow {
+  0% {
+    box-shadow: 0 0 12px 4px #ff4d4d6b;
+  }
+  25% {
+    box-shadow: 0 0 12px 4px #4dff8863;
+  }
+  50% {
+    box-shadow: 0 0 12px 4px #4da6ff62;
+  }
+  75% {
+    box-shadow: 0 0 12px 4px #ffd34d5b;
+  }
+  100% {
+    box-shadow: 0 0 12px 4px #ff4d4d5e;
+  }
+}
+
+.led-glow {
+  animation: ledGlow 25s infinite ease;
+}
